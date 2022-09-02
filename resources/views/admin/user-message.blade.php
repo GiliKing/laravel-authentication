@@ -5,7 +5,7 @@
 
 <div class="mt-5">
     <p class="py-3">
-        All Your Messages
+        All Messages from users
     </p>
     <table class="table">
         <thead>

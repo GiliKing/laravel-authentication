@@ -18,12 +18,14 @@
             </thead>
             <tbody>
                 @forelse ($messages as $message)
-                    <tr>
-                        <td>{{ $message->email }}</td>
-                        <td>{{ $message->subject }}</td>
-                        <td>{{ $message->information }}</td>
-                        <td>{{ $message->created_at }}</td>
-                    </tr>
+                    @if ($message->email === auth()->user()->email)
+                        <tr>
+                            <td>{{ $message->email }}</td>
+                            <td>{{ $message->subject }}</td>
+                            <td>{{ $message->information }}</td>
+                            <td>{{ $message->created_at }}</td>
+                        </tr>
+                    @endif
                 @empty
                     <p>No Message from you </p>
                 @endforelse

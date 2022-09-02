@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+
+    // navigate to send-message
+    public function index() {
+        return view('components.send-message');
+    }
+
+
     public function store(Request $request) {
 
         $formFields = $request->validate([
@@ -23,7 +30,14 @@ class MessageController extends Controller
     }
 
     public function show() {
+        
         return view('message.message', [
+            "messages" => Message::all()
+        ]);
+    }
+
+    public function showadmin() {
+        return view('admin.user-message', [
             "messages" => Message::all()
         ]);
     }

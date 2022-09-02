@@ -162,9 +162,16 @@ class UserController extends Controller
     }
 
     // go to the landing page
-    public function AdminIndex() {
+    public function adminindex() {
         return view('admin.admin', [
-            "users" => User::latest()->filter(request(['activate']))->simplepaginate(4)
+            "users" => User::latest()->filter(request(['activate']))->simplepaginate()
+        ]);
+    }
+
+    // go to the landing page
+    public function adminindexpag() {
+        return view('admin.admin', [
+            "users" => User::latest()->filter(request(['activate']))->simplepaginate(5)
         ]);
     }
 
